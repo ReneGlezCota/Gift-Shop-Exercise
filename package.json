@@ -1,0 +1,38 @@
+{
+  "name": "gift-shop-exercise",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "exit",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReneGlezCota/Gift-Shop-Exercise.git"
+  },
+  "author": "Rene Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReneGlezCota/Gift-Shop-Exercise/issues"
+  },
+  "homepage": "https://github.com/ReneGlezCota/Gift-Shop-Exercise#readme",
+  "dependencies": {
+    "angular": "^1.6.7",
+    "angular-ui-router": "^0.4.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "consolidate": "^0.15.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "https": "^1.0.0",
+    "minimist": "^1.2.0",
+    "morgan": "^1.9.0",
+    "mustache": "^2.3.0",
+    "path": "^0.12.7",
+    "sequelize": "^4.23.4",
+    "serve-favicon": "^2.4.5"
+  }
+}
