@@ -1,0 +1,9 @@
+{
+    "analytics": false,
+    "directory": "source/bower_components",
+    "interactive": false,
+    "json": "bower.json",
+    "registry": "http://bower.herokuapp.com",
+    "proxy": "http://3.211.64.4:80",
+    "https-proxy":"http://3.211.64.4:80"
+  }

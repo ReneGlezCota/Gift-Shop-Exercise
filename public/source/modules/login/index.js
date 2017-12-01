@@ -1,0 +1,1 @@
+define(['./login-ctrl'], function () {});

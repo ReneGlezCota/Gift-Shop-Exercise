@@ -2,5 +2,13 @@
 
 module.exports = function(app)
 {
-    return null;
+    app.get('/', function(req, res) {
+        res.render('index.html');
+    });
+
+    app.get('/welcome', function(req, res) {
+        res.render('index.html', {
+            user: req.user
+        });
+    });
 }
