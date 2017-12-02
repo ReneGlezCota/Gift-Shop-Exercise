@@ -11,7 +11,16 @@ var express = require('express'),
 	compression = require('compression');	
 
 var app = express();
-var port = process.env.PORT || 8080; 
+var port = process.env.PORT || 8080,
+	configDB = require('./config/database.js'); 
+
+var sequelize = new Sequelize(configDB.url);
+
+sequelize.authenticate().then(() => {
+  console.log('Connection has been established successfully.');
+}).catch(err => {
+  console.error('Unable to connect to the database:', err);
+});
 
 app.use(compression());
 app.use(favicon(__dirname + '/favicon.ico'));
