@@ -9,7 +9,8 @@ define(['./module'], function (module) {
 
         $scope.login = function() {          
           $scope.promiseLogin = AuthenticationService.query($scope.username, $scope.password).then(function(result){
-            if(result.data){
+            console.log(result);
+            if(result.data.success){
               console.log(result.data);
               $state.go("home");
             }

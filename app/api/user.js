@@ -27,7 +27,8 @@ module.exports = {
             password = req.body.pw;
         
         userModel.findAll({raw: true, where : { username : username, password : password}, include : [roleModel]}).then(function(values){
-            if(values != null){
+            console.log(values);
+            if(values.length != 0){
                 var parsedData = _.map(values, function(v){
                     return {
                         username : v.username,
@@ -36,8 +37,13 @@ module.exports = {
                         rolename : v['role.role']
                     }
                 });
-                res.json(parsedData);
+                res.send({success: true, data:parsedData});
             }
+            else{
+                res.send({success: false});
+            }
+        }).catch(function(err){
+            errorResponder(res,err, 'Error while send values');
         });
     }
 };
