@@ -1,11 +1,13 @@
 define([
     'jquery',
     'angular',
-    '../modules/login/index'
+    '../modules/login/index',
+    '../modules/home/index'
 ], function ($, angular) {
     return angular.module('app', [
+        'ui.router',
         'app.login',
-        'ui.router'
+        'app.home'
     ])
     .config(function($urlRouterProvider, $httpProvider) {
         $urlRouterProvider.otherwise('/login');

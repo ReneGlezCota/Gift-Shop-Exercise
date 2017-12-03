@@ -1,8 +1,3 @@
-var Sequelize = require('sequelize'),
-configDB = require('../config/database.js');
-
-var sequelize = new Sequelize(configDB.url);
-
 module.exports = function(sequelize, DataTypes) {
     var roles = require('./roles')(sequelize, DataTypes);
 
@@ -40,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         updatedAt: false
     });
     
-    users.belongsTo(roles, { foreignKey: 'id'});
+    users.belongsTo(roles, { foreignKey: 'roleid'});
 
     return users;
 };

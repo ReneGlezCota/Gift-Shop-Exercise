@@ -1,8 +1,3 @@
-var Sequelize = require('sequelize'),
-configDB = require('../config/database.js');
-
-var sequelize = new Sequelize(configDB.url);
-
 module.exports = function(sequelize, DataTypes) {
     var categories = sequelize.define('category', {
         id: {

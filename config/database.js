@@ -1,11 +1,11 @@
 urls = {
-    // urlSQLSERVER : {
+    // urlPostgress : {
     //     database : 'Gift_Shop',
-    //     user : 'sa',
+    //     user : 'postgres',
     //     password : 'developer123',
     //     host : 'localhost',
-    //     port : '1433',
-    //     dialect : 'mssql'
+    //     port : '5432',
+    //     dialect : 'postgres'
     // }
     urlPostgress : 'postgres://postgres:developer123@localhost:5432/Gift_Shop'
 

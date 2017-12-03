@@ -1,9 +1,11 @@
 define([
     'angular',
-    'ui.router'
+    'ui.router',
+    '../../services/AuthService'
   ], function (angular) {  
     return angular.module('app.login', [
-      'ui.router'
+      'ui.router',
+      'service.auth'
     ]).config(function ($stateProvider) {
       $stateProvider
         .state('login', {

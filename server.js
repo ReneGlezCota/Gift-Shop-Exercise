@@ -1,26 +1,15 @@
 var express = require('express'),
 	Sequelize = require('sequelize'),
-	flash = require('connect-flash'),
 	morgan = require('morgan'),
 	cookieParser = require('cookie-parser'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	favicon = require('serve-favicon'),
-	https = require('https'),
 	engines = require('consolidate'),	
 	compression = require('compression');	
 
 var app = express();
-var port = process.env.PORT || 8080,
-	configDB = require('./config/database.js'); 
-
-var sequelize = new Sequelize(configDB.url);
-
-sequelize.authenticate().then(() => {
-  console.log('Connection has been established successfully.');
-}).catch(err => {
-  console.error('Unable to connect to the database:', err);
-});
+var port = process.env.PORT || 8080;
 
 app.set('views', __dirname + '/public/source');
 app.engine('html', engines.mustache);

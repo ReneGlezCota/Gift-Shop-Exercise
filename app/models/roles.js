@@ -1,8 +1,3 @@
-var Sequelize = require('sequelize'),
-    configDB = require('../config/database.js');
-
-var sequelize = new Sequelize(configDB.url);
-
 module.exports = function(sequelize, DataTypes) {
     var roles = sequelize.define('role', {
         id: {
@@ -11,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey: true,
             autoincrement: true            
         },
-        name: {
+        role: {
             type: DataTypes.STRING(50),
             allowNull: false
         }
