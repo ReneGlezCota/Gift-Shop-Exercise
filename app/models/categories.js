@@ -1,15 +1,15 @@
 var Sequelize = require('sequelize'),
-    configDB = require('../config/database.js');
+configDB = require('../config/database.js');
 
 var sequelize = new Sequelize(configDB.url);
 
 module.exports = function(sequelize, DataTypes) {
-    var roles = sequelize.define('role', {
+    var categories = sequelize.define('category', {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoincrement: true            
+            autoincrement: true
         },
         name: {
             type: DataTypes.STRING(50),
@@ -17,9 +17,10 @@ module.exports = function(sequelize, DataTypes) {
         }
     }, {
         schema: 'public',
-        tableName: 'roles',
+        tableName: 'categories',
         createdAt: false,
         updatedAt: false
     });
-    return roles;
+
+    return categories;
 };
