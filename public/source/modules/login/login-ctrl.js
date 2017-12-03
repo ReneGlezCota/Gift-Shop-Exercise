@@ -2,7 +2,7 @@
  * Login controller definition
  */
 define(['./module'], function (module) {    
-      module.controller('LoginController', ['$scope', '$location', 'AuthenticationService', function ($scope, $location, AuthenticationService) {
+      module.controller('LoginController', ['$scope', '$state', 'AuthenticationService', function ($scope, $state, AuthenticationService) {
         $scope.username = '';
         $scope.password = '';
         $scope.promiseLogin = '';
@@ -11,7 +11,7 @@ define(['./module'], function (module) {
           $scope.promiseLogin = AuthenticationService.query($scope.username, $scope.password).then(function(result){
             if(result.data){
               console.log(result.data);
-              $location.path('/home')
+              $state.go("home");
             }
           });       
         };        
