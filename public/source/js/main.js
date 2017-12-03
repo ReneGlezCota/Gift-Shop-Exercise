@@ -3,8 +3,8 @@ define([
     'ui.router',
     'ngResource', 
     'ngStorage',
-    'ui.router',    
     'loadash',
+    'bootstrap',
     './app'
   ], function (angular) {
     angular.bootstrap(document, ['app']);

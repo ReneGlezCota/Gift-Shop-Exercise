@@ -11,7 +11,8 @@ if (typeof define !== 'function') {
       'ngStorage'       : 'bower_components/ngstorage/ngStorage.min',
       'ngResource'      : 'bower_components/angular-resource/angular-resource',
       'ui.router'       : 'bower_components/angular-ui-router/release/angular-ui-router',
-      'loadash'         : 'bower_components/lodash/lodash'  
+      'loadash'         : 'bower_components/lodash/lodash',
+      'bootstrap'       : 'bower_components/bootstrap/dist/js/bootstrap.min'  
     },
     priority:[
       'jquery',
@@ -24,6 +25,7 @@ if (typeof define !== 'function') {
       },
       'ngResource': ['angular'],
       'ngStorage': ['angular'],
-      'ui.router' : ['angular']  
+      'ui.router' : ['angular'],
+      'bootstrap': { deps: ['jquery'] }
     }
   });

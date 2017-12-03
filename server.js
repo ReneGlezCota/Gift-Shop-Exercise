@@ -22,21 +22,21 @@ sequelize.authenticate().then(() => {
   console.error('Unable to connect to the database:', err);
 });
 
-app.use(compression());
-app.use(favicon(__dirname + '/favicon.ico'));
-app.use(morgan('dev'));
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
-
 app.set('views', __dirname + '/public/source');
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 
-require('./app/routes/index.js')(app);
+app.use(morgan('dev'));
+app.use(compression());
+app.use(favicon(__dirname + '/favicon.ico'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 app.use(express.static(__dirname + '/public/source'));
+
+require('./app/routes/index.js')(app);
+
 app.all('*', function(req, res) {
 	if (req.method === 'GET') {
 		res.status(404).send('<h1> 404 </h1> <h2> Page not found </h2>');
