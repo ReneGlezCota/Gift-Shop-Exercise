@@ -2,7 +2,7 @@
  * Home controller definition
  */
 define(['./module'], function (module) {    
-    module.controller('HomeController', ['$scope', '$window', '$filter', 'ProductService', 'CategoryService', function ($scope, $window, $filter, ProductService, CategoryService) {
+    module.controller('HomeController', ['$scope', '$window', '$filter', 'ProductService', 'CategoryService', 'DeletedProductService', function ($scope, $window, $filter, ProductService, CategoryService, DeletedProductService) {
       var session = angular.fromJson($window.sessionStorage.getItem("currentUser"))
       $scope.uservalues = session;
 
@@ -12,14 +12,14 @@ define(['./module'], function (module) {
       $scope.categories = '';
       $scope.shoped = [];
       $scope.filteredItems = null;
-
-
       
-      var init  = function() {          
+      var initProduct  = function() {          
         $scope.promiseProduct = ProductService.getAllProducts().then(function(result){
           $scope.products = result.data.data;
           $scope.filteredItems = result.data.data;
-        });    
+        });
+      };
+      var initCategories = function() { 
         $scope.promiseCategory = CategoryService.getAllCategory().then(function(result){
           $scope.categories = result.data.data;
           if($scope.categories != null){
@@ -28,17 +28,17 @@ define(['./module'], function (module) {
               name : ''
             })
           }
-        });   
+        });  
       };
 
-      init();
+      initProduct();
+      initCategories();
 
       $scope.addItemToCart = function(values){
         $scope.shoped.push({
           name : values.name,
           price : values.price
         });
-        console.log($scope.shoped);
       };
 
       $scope.$watch('query' , function (newvalue, oldvalue) {
@@ -54,6 +54,12 @@ define(['./module'], function (module) {
         ).value();
         
         $scope.products = obj;
-      });      
+      });   
+      
+      $scope.deletedItemToCart = function(val){
+        $scope.promiseProduct = DeletedProductService.deleteProduct(val.id).then(function(result){
+          initProduct();
+        });  
+      }
   }]);
 });

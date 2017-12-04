@@ -18,4 +18,8 @@ module.exports = function(app)
     app.get('/api/allcategories', function(req, res){
         require('../api/category').getAllCategory(req,res);
     });
+
+    app.delete('/api/deleteproduct/:productid', function(req, res){
+        require('../api/product').removeProduct(req,res);
+    });
 }

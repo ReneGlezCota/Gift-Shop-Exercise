@@ -36,5 +36,22 @@ module.exports = {
             console.error(err.stack);
             res.status(500).send('Something broke in the api of products');
         });
+    },
+    removeProduct : function(req, res){
+        var productModel = require('../models/products')(sequelize, Sequelize);
+        var idProduct = req.param('productid');
+        if(idProduct != null){
+            productModel.destroy({where : {id : idProduct}}).then(function(result){
+                if(result){
+                    res.send({success : true});
+                }
+                else {
+                    res.send({success : false});
+                }
+            }).catch(function(err){
+                console.error(err.stack);
+                res.status(500).send('Something broke in the api of products');
+            });
+        }
     }
 };

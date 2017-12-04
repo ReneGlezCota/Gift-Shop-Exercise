@@ -16,5 +16,19 @@ define(['angular'], function(angular){
             }
         };
         return GetApiProducts;
+    }])
+    .service('DeletedProductService', ['$http', function($http){
+        var result;
+        var DeleteApiProducts = {
+            deleteProduct : function(val) {
+                var data = $http.delete('/api/deleteproduct/' + val).then(function(result){
+                    return result;
+                }, function(err){
+                    console.log('Error in the delete of values ' + err);
+                });
+                return data;
+            }
+        };
+        return DeleteApiProducts;
     }]);
 });
