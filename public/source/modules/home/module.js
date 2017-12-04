@@ -1,9 +1,13 @@
 define([
     'angular',
-    'ui.router'
+    'ui.router',
+    '../../services/ProductService',
+    '../../services/CategoryService'
   ], function (angular) {  
     return angular.module('app.home', [
-      'ui.router'
+      'ui.router',
+      'service.product',
+      'service.category'
     ]).config(function ($stateProvider) {
       $stateProvider
         .state('home', {

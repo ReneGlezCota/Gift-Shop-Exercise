@@ -27,7 +27,7 @@ module.exports = {
             password = req.body.pw;
         
         userModel.findAll({raw: true, where : { username : username, password : password}, include : [roleModel]}).then(function(values){
-            console.log(values);
+            
             if(values.length != 0){
                 var parsedData = _.map(values, function(v){
                     return {
@@ -42,8 +42,9 @@ module.exports = {
             else{
                 res.send({success: false});
             }
-        }).catch(function(err){
-            errorResponder(res,err, 'Error while send values');
+        }).catch(function(err){            
+            console.error(err.stack);
+            res.status(500).send('Something broke in the api of user');
         });
     }
 };

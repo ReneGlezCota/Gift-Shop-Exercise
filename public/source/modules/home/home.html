@@ -1,1 +1,77 @@
-<h1>ENTRROOOOOOO!!</h1>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" >Gift - Shop</a>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" ng-model="query">
+          </div>            
+        </form>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a >
+            <span class="glyphicon glyphicon-user"></span> {{ uservalues.name }}
+          </a>
+        </li>
+        <li >
+          <a >
+            <span class="glyphicon glyphicon-shopping-cart"></span> Cart({{shoped.length}})
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" >
+    <div class="navbar">
+      <div class="row">
+        <div><h3>Filter like Category</h3></div>
+        <form class="navbar-form pull-left">
+          <select name="" id="" class="form-control" ng-model="category" ng-options="cat.name as cat.name for cat in categories" style="width: 200px;"></select>
+        </form>
+      </div>
+        
+    </div>
+    <div class="row" >
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table " >
+                <thead>
+                    <tr>
+                        <th><h3>Product</h3></th>
+                        <th class="text-center"><h3>Price</h3></th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in products | filter: category">
+                        <td class="col-sm-6 col-md-6">
+                          <div class="media">
+                              <div class="media-body">
+                                  <h4 class="media-heading">Name : {{product.name}}</h4>
+                                  <h5 class="media-heading">Category : {{product['category.name']}}</h5>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{product.price | currency}}</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                            <input class="btn btn-success" type="button" ng-click="addItemToCart(product)" value="BUY" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  <div>
+</div>
+
+

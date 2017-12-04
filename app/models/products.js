@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
         updatedAt: false
     });
     
-    products.hasMany(roles, { foreignKey: 'id'});
+    products.belongsTo(categories, { foreignKey: 'categoriid'});
 
     return products;
 };
