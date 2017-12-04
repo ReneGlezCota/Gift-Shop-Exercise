@@ -12,7 +12,7 @@ cd public
 npm install
 bower install
 ```
-Then you need to build the back-end, run the script of PostgreSQL in the manager of postgresql.
+Then you need to build the back-end, run the script of PostgreSQL in the manager of postgresql, this script is in the folder called database.
 
 Then to start the project go back to the root folder and use the start command for npm:
 
